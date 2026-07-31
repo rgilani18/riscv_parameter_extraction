@@ -1,0 +1,26 @@
+snippet_1:
+  source: Privileged Spec 19.3.1
+  architectural_parameters:
+  - name: cache_capacity
+    description: Capacity of a cache in the system.
+    type: integer
+    constraints: Implementation-specific.
+    evidence: The capacity and organization of a cache and the size of a cache block
+      are both implementation-specific
+  - name: cache_organization
+    description: Organization and structure of a cache.
+    type: implementation-defined
+    constraints: Implementation-specific.
+    evidence: The capacity and organization of a cache and the size of a cache block
+      are both implementation-specific
+  - name: cache_block_size
+    description: Size of a cache block in memory locations.
+    type: integer
+    constraints: Must represent a contiguous, naturally aligned power-of-two (NAPOT)
+      range of memory locations. Shall be uniform throughout the system in the initial
+      set of CMO extensions.
+    evidence: In the initial set of CMO extensions, the size of a cache block shall
+      be uniform throughout the system.
+snippet_2:
+  source: Privileged Spec 2.1
+  architectural_parameters: []
