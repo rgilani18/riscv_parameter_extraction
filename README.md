@@ -10,7 +10,7 @@ for by hand across hundreds of pages.
 truth, so the comparison isolates "does open vs. closed source change how much prompt
 engineering you need?" rather than just "which model wins."
 
-## TL;DR
+## Summary
 
 - Built a 4-iteration prompt pipeline (V1 → V4) that took both models from **F1 = 0**
   to **F1 = 1.0** on the target snippet.
