@@ -56,15 +56,19 @@ but isn't a hard guarantee.
 
 ### F1 Score — target snippet, across prompt versions
 ![F1 Score Comparison](images/f1_score_comparison.png)
+*Both models fail on V1–V2, Gemini partially recovers at V3, and both reach a perfect F1 = 1.0 at V4.*
 
 ### Precision — across prompt versions
 ![Precision Comparison](images/precision_comparison.png)
+*Gemini reaches full precision one prompt version earlier (V3) than Mistral-7B-Instruct (V4).*
 
 ### Recall — across prompt versions
 ![Recall Comparison](images/recall_comparison.png)
+*Recall follows the same pattern as precision — Gemini partially recovers at V3, both models hit 100% recall at V4.*
 
 ### Hallucinations — negative test snippet
 ![Hallucination Comparison](images/hallucination_comparison.png)
+*Zero hallucinations for both models in the final systematic evaluation, across every prompt version — this is what motivated the evidence-field constraint (see the fabrication example noted above, from an earlier ad-hoc test, which the final V4 prompt was designed to prevent).*
 
 ### Final scores (V4, best prompt)
 
@@ -97,10 +101,22 @@ snippet_2:
   architectural_parameters: []   # correctly identified as having no configurable parameters
 ```
 
+## Setup
+
+```
+pip install -r requirements.txt
+```
+
+The notebook is designed to run in **Google Colab** (it uses `google.colab.userdata`
+for API-key secrets and `google.colab.files` for downloads). You'll need free API
+keys for OpenRouter (Mistral) and Google AI Studio (Gemini), added as Colab secrets:
+`OPENROUTER_API_KEY`, `GEMINI_API_KEY`, `HF_TOKEN`.
+
 ## Repo Contents
 
 | File | Contents |
 |---|---|
 | `riscv_parameter_extraction.ipynb` | Full pipeline: setup, dataset, prompt iterations, both models' experiments, evaluation, graphs |
 | `final_results.yaml` | Deliverable 3 — structured extraction results for both snippets |
+| `requirements.txt` | Python dependencies |
 | `images/` | Graphs referenced above |
